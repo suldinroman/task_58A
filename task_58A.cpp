@@ -12,7 +12,7 @@ int main()
 
     std::cin >> inputString;
 
-    while (charactersFound < 5 && position < inputString.length())
+    while (charactersFound < 5)
 	{
         if (inputString.find(helloString[charactersFound], position) == std::string::npos)
             break;
