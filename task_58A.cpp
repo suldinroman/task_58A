@@ -12,11 +12,9 @@ int main()
 
     std::cin >> inputString;
 
-    while (charactersFound < 5)
+    while (charactersFound < 5 &&
+	inputString.find(helloString[charactersFound], position) != std::string::npos)
 	{
-        if (inputString.find(helloString[charactersFound], position) == std::string::npos)
-            break;
-
         position = inputString.find(helloString[charactersFound], position) + (charactersFound == 2 ? 1 : 0);
         ++charactersFound;
 	}
