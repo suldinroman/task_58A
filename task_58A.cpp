@@ -2,22 +2,22 @@
 #include <string>
 
 
-int main()
-{
-    std::string inputString;
-    std::string helloString = "hello";
+int main(){
+	std::string inStr;
+	std::string helloStr = "hello";
 
-    unsigned int charactersFound = 0;
-    unsigned int position = 0;
+	size_t symbFound = 0;
+	size_t pos = 0;
 
-    std::cin >> inputString;
+	std::cin >> inStr;
+	pos = inStr.find(helloStr[symbFound], pos);
 
-    while (charactersFound < 5 &&
-	inputString.find(helloString[charactersFound], position) != std::string::npos)
-	{
-        position = inputString.find(helloString[charactersFound], position) + (charactersFound == 2 ? 1 : 0);
-        ++charactersFound;
+	while (symbFound < 5 && pos != std::string::npos){
+		pos = inStr.find(helloStr[symbFound], pos) + (symbFound == 2 ? 1 : 0);
+		++symbFound;
 	}
 
-    std::cout << (charactersFound == 5 ? "YES" : "NO") << std::endl;
+	std::cout << (symbFound == 5 ? "YES" : "NO") << std::endl; //wrong answer with "hle"
+
+	return 0;
 }
