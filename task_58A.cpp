@@ -4,13 +4,12 @@
 
 int main(){
 	std::string inStr;
+	std::cin >> inStr;
+	
 	std::vector<char> helloVect = {'h', 'e', 'l', 'l', 'o'};
 	std::vector<char>::iterator helloIter = helloVect.begin();
 	
-	size_t pos = 0;
-
-	std::cin >> inStr;
-	pos = inStr.find(*helloIter++, pos);
+	size_t pos = inStr.find(*helloIter++, 0);
 
 	while (helloIter != helloVect.end()){
 		pos = inStr.find(*helloIter, pos); 
