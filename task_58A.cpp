@@ -1,23 +1,27 @@
 #include <iostream>
 #include <string>
-
+#include <vector>
 
 int main(){
 	std::string inStr;
-	std::string helloStr = "hello";
-
-	size_t symbFound = 0;
+	std::vector<char> helloVect = {'h', 'e', 'l', 'l', 'o'};
+	std::vector<char>::iterator helloIter = helloVect.begin();
+	
 	size_t pos = 0;
 
 	std::cin >> inStr;
-	pos = inStr.find(helloStr[symbFound], pos);
+	pos = inStr.find(*helloIter++, pos);
 
-	while (symbFound < 5 && pos != std::string::npos){
-		pos = inStr.find(helloStr[symbFound], pos) + (symbFound == 2 ? 1 : 0);
-		++symbFound;
+	while (helloIter != helloVect.end()){
+		pos = inStr.find(*helloIter, pos); 
+
+		if(pos != std::string::npos)
+			pos += (++helloIter == std::next(helloVect.begin(), 3) ? 1 : 0);
+		else
+			break;
 	}
 
-	std::cout << (symbFound == 5 ? "YES" : "NO") << std::endl; //wrong answer with "hle"
+	std::cout << (helloIter == helloVect.end() ? "YES" : "NO") << std::endl;
 
 	return 0;
 }
